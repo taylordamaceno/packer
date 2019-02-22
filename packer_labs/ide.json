@@ -14,7 +14,7 @@
       "region": "us-east-1",
       "source_ami": "ami-035be7bafff33b6b6",
       "instance_type": "t2.medium",
-      "ssh_username": "ec2_user",
+      "ssh_username": "ec2-user",
       "ami_name": "centos"}}",
       "security_group_ids": ["sg-xpto", "sg-xpto1", "sg-xpto2"],
       "subnet_id": "subnet-xpto",
@@ -44,7 +44,7 @@
         "mkdir -p /etc/haproxy && touch /etc/haproxy/haproxy.cfg",
         "docker network create vrau || true", 
         "docker run --name nginx-backend -p 8088:80 -d --net=vrau  nginx:1.15.0-alpine && sleep 15",
-        "docker run -d -v /etc/haproxy:/usr/local/etc/haproxy:ro -p 81:81 --net=vrau --name web-gateway haproxy:1.6" 
+        "docker run -d -v /etc/haproxy:/usr/local/etc/haproxy:ro -p 81:81 --net=vrau --name web-gateway haproxy:latest" 
       ]
     }
   ]
